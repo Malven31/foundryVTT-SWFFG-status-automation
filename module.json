@@ -1,51 +1,51 @@
 {
-  "id": "module",
-  "title": "New Module",
-  "description": "",
-  "version": "#{VERSION}#",
-  "library": "false",
-  "manifestPlusVersion": "1.2.0",
-  "compatibility": {
-    "minimum": 10,
-    "verified": 10,
-    "maximum": 11
-  },
-  "authors": [
-    {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+    "id": "star-wars-status-automation",
+    "title": "Star Wars Status Automation",
+    "description": "",
+    "version": "#{VERSION}#",
+    "utl": "#{URL}#",
+    "manifest": "#{MANIFEST}#",
+    "license": "LICENSE",
+    "readme": "README.md",
+    "compatibility": {
+        "minimum": "12",
+        "verified": "12",
+        "maximum": "13"
+    },
+    "authors": [
+        {
+            "name": "Alix Deltour",
+            "url": "https://github.com/Malven31",
+            "discord": "malven31#0013"
+        }
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        },
+        {
+            "lang": "fr",
+            "name": "French",
+            "path": "lang/fr.json"
+        }
+    ],
+    "esmodules": ["star-wars-status-automation.js"],
+    "scripts": ["scripts/encumbrance_automation.js", "scripts/settings.js"],
+    "relationships": {
+        "systems": [
+            {
+                "id": "starwarsffg",
+                "type": "system",
+                "compatibility": {}
+            }
+        ]
+    },
+    "flags": {
+        "hotReload": {
+            "extensions": ["json"],
+            "paths": ["lang"]
+        }
     }
-  ],
-  "relationships": {
-    "systems": [],
-    "requires": []
-  },
-  "esmodules": [
-    "scripts/module.js"
-  ],
-  "scripts": [
-    "scripts/lib/lib.js"
-  ],
-  "styles": [
-    "styles/module.css"
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "languages/en.json"
-    }
-  ],
-  "url": "#{URL}#",
-  "manifest": "#{MANIFEST}#",
-  "download": "#{DOWNLOAD}#",
-  "license": "LICENSE",
-  "readme": "README.md",
-  "media": [
-    {
-      "type": "icon",
-      "url": "https://avatars2.githubusercontent.com/u/71292812?s=400&u=ccdb4eeb7abf551ca8f314e5a9bfd0479a4d3d41&v=4"
-    }
-  ]
 }

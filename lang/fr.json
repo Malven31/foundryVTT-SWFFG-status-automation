@@ -1,0 +1,20 @@
+{
+    "star-wars-status-automation": {
+        "encumbrance-sync-enable": {
+            "name": "Enable auto Encumbrance",
+            "hint": "Configure automatic attack animations"
+        },
+        "encumbrance-sync-status": {
+            "name": "Encumbrance icon",
+            "hint": ""
+        },
+        "encumbrance-talent": {
+            "name": "Encumbrance Talent name",
+            "hint": ""
+        },
+        "encumbrance-over-talent": {
+            "name": "Over Encumbrance Talent name",
+            "hint": ""
+        }
+    }
+}

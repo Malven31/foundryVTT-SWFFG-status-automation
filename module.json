@@ -3,7 +3,7 @@
     "title": "Star Wars Status Automation",
     "description": "",
     "version": "#{VERSION}#",
-    "utl": "#{URL}#",
+    "url": "#{URL}#",
     "manifest": "#{MANIFEST}#",
     "license": "LICENSE",
     "readme": "README.md",

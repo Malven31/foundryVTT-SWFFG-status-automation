@@ -1,9 +1,16 @@
+import { log_msg as log } from "./util.js";
+
+let module_name = "encumbrance_automation";
+
 async function update_status(token, ranks, icon_path) {
+    // command inherited from ffg-star-wars-enhancement, modified
     let active = ranks !== 0;
     if (!window.EffectCounter) {
         // the user doesn't have status icon counters installed; they don't get a count
+        log(module_name, "Adding status to token");
         token.toggleEffect(icon_path, { active: active });
     } else {
+        log(module_name, "Adding status rank " + ranks + " to token");
         // no need to search for the effect ourselves, as this is done in the underlying libraries
         let new_counter = new ActiveEffectCounter(
             ranks,
@@ -20,6 +27,7 @@ async function update_status(token, ranks, icon_path) {
 }
 
 export function encumbrance_sync(source, ...args) {
+    // command inherited from ffg-star-wars-enhancement, modified
     // check if the user is a GM
     if (
         game.user.isGM &&
@@ -58,6 +66,18 @@ export function encumbrance_sync(source, ...args) {
                 if (actor.type !== "character") {
                     return;
                 }
+
+                // this is a encumbrance update
+                log(
+                    module_name,
+                    "encumbrance value: " +
+                        parseInt(actor.system.stats.encumbrance.value)
+                );
+                log(
+                    module_name,
+                    "encumbrance max: " +
+                        parseInt(actor.system.stats.encumbrance.max)
+                );
 
                 // look up relevant info
                 let actor_id = actor["_id"];
@@ -99,7 +119,7 @@ export function encumbrance_sync(source, ...args) {
             }
         } catch (exception) {
             // something went wrong, bail (silently)
-            console.log(
+            console.error(
                 module_name,
                 "Failed to sync encumbrance: " + exception
             );

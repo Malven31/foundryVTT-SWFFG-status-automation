@@ -64,4 +64,16 @@ export function init() {
             default: "Sur Encombrement",
         }
     );
+    game.settings.register("star-wars-status-automation", "debug-enable", {
+        name: game.i18n.localize(
+            "star-wars-status-automation.debug-enable.name"
+        ),
+        hint: game.i18n.localize(
+            "star-wars-status-automation.debug-enable.hint"
+        ),
+        scope: "world",
+        config: true,
+        type: Boolean,
+        default: false,
+    });
 }

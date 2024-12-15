@@ -2,11 +2,11 @@
     "star-wars-status-automation": {
         "encumbrance-sync-enable": {
             "name": "Enable auto Encumbrance",
-            "hint": "Configure automatic attack animations"
+            "hint": "Enables display of Emcumbrance icon on Actor's token. With \"Status Counter\" module installed, display a counter of how much over the encombrance threshold encumbered Actor is."
         },
         "encumbrance-sync-status": {
             "name": "Encumbrance icon",
-            "hint": ""
+            "hint": "Encumbrance icon to display on Actor's token."
         },
         "encumbrance-talent": {
             "name": "Encumbrance Talent name",
@@ -15,6 +15,10 @@
         "encumbrance-over-talent": {
             "name": "Over Encumbrance Talent name",
             "hint": ""
+        },
+        "debug-enable": {
+            "name": "Enable Debug",
+            "hint": "Print Degug information into developper console."
         }
     }
 }

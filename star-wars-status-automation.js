@@ -13,6 +13,14 @@ Hooks.on("updateItem", (...args) => {
     encumbrance_sync("updateItem", ...args);
 });
 
+Hooks.on("createItem", (...args) => {
+    encumbrance_sync("updateItem", ...args);
+});
+
+Hooks.on("deleteItem", (...args) => {
+    encumbrance_sync("updateItem", ...args);
+});
+
 Hooks.on("canvasReady", (...args) => {
     encumbrance_sync("scene", ...args);
 });

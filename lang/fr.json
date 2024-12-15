@@ -1,20 +1,24 @@
 {
     "star-wars-status-automation": {
         "encumbrance-sync-enable": {
-            "name": "Enable auto Encumbrance",
-            "hint": "Configure automatic attack animations"
+            "name": "Activer l'auto Encombrement",
+            "hint": "Active l'affichage de l'Encombrement sur le token de l'Actor. Avec le module \"Status Counter\" installé, affiche avec le compte de combien l'encombrement dépasse le seuil de l'Actor."
         },
         "encumbrance-sync-status": {
-            "name": "Encumbrance icon",
-            "hint": ""
+            "name": "Icone de l'Encombrement",
+            "hint": "L'icone de l'Encombrement à afficher sur le token de l'Actor."
         },
         "encumbrance-talent": {
-            "name": "Encumbrance Talent name",
+            "name": "Nom du Talent d'Encombrement",
             "hint": ""
         },
         "encumbrance-over-talent": {
-            "name": "Over Encumbrance Talent name",
+            "name": "Nom du Talent de Sur-Encombrement",
             "hint": ""
+        },
+        "debug-enable": {
+            "name": "Activer le Debug",
+            "hint": "Affiche les informations de debug dans la console développeur."
         }
     }
 }

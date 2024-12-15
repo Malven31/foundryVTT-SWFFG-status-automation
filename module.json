@@ -34,6 +34,13 @@
     "esmodules": ["star-wars-status-automation.js"],
     "scripts": ["scripts/encumbrance_automation.js", "scripts/settings.js"],
     "relationships": {
+        "requires": [
+            {
+                "id": "statuscounter",
+                "type": "module",
+                "compatibility": {}
+            }
+        ],
         "systems": [
             {
                 "id": "starwarsffg",

@@ -60,7 +60,11 @@ export function encumbrance_sync(source, ...args) {
                         return;
                     }
                 } else if (source === "updateItem") {
-                    actor = args[0].actor;
+                    if (args[0] && args[0].hasOwnProperty("actor")) {
+                        actor = args[0].actor;
+                    } else {
+                        return;
+                    }
                 }
 
                 if (actor.type !== "character") {

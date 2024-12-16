@@ -29,14 +29,12 @@ async function update_status(token, ranks, icon_path) {
 export function encumbrance_sync(source, ...args) {
     // command inherited from ffg-star-wars-enhancement, modified
     // check if the user is a GM
-    if (
-        game.user.isGM &&
-        game.settings.get(
-            "star-wars-status-automation",
-            "encumbrance-sync-enable"
-        )
-    ) {
+    if (game.user.isGM) {
         try {
+            let enabled = game.settings.get(
+                "star-wars-status-automation",
+                "encumbrance-sync-enable"
+            );
             // pull the path of the status to apply
             let status = game.settings.get(
                 "star-wars-status-automation",
@@ -60,73 +58,92 @@ export function encumbrance_sync(source, ...args) {
                         return;
                     }
                 } else if (source === "updateItem") {
-                    if (args[0] && args[0].hasOwnProperty("actor")) {
+                    if (
+                        args[0] &&
+                        args[0].hasOwnProperty("parent") &&
+                        args[0]["parent"] !== null
+                    ) {
                         actor = args[0].actor;
                     } else {
                         return;
                     }
                 }
 
-                if (actor.type !== "character") {
+                if (actor === null || actor.type !== "character") {
                     return;
                 }
-
-                // this is a encumbrance update
-                log(
-                    module_name,
-                    "encumbrance value: " +
-                        parseInt(actor.system.stats.encumbrance.value)
-                );
-                log(
-                    module_name,
-                    "encumbrance max: " +
-                        parseInt(actor.system.stats.encumbrance.max)
-                );
+                log(module_name, "character and needs an update");
 
                 // look up relevant info
                 let actor_id = actor["_id"];
-                let encumbrance_amount =
-                    parseInt(actor["system"]["stats"]["encumbrance"]["value"]) -
-                    parseInt(actor["system"]["stats"]["encumbrance"]["max"]);
-                if (encumbrance_amount < 0) {
-                    encumbrance_amount = 0;
-                }
                 let tokens = canvas.tokens.placeables.filter(
                     (token) => token.document.actorId === actor_id
                 );
 
                 // update the tokens
-                for (var x = 0; x < tokens.length; x++) {
-                    update_status(tokens[x], encumbrance_amount, status);
+                if (enabled == true) {
+                    let encumbrance_amount =
+                        parseInt(
+                            actor["system"]["stats"]["encumbrance"]["value"]
+                        ) -
+                        parseInt(
+                            actor["system"]["stats"]["encumbrance"]["max"]
+                        );
+                    if (encumbrance_amount < 0) {
+                        encumbrance_amount = 0;
+                    }
+                    log(
+                        module_name,
+                        "updateActor|updateItem: updating tokens now"
+                    );
+                    for (var x = 0; x < tokens.length; x++) {
+                        update_status(tokens[x], encumbrance_amount, status);
+                    }
+                } else {
+                    for (var x = 0; x < tokens.length; x++) {
+                        update_status(tokens[x], 0, status);
+                    }
                 }
             } else if (source === "canvasReady") {
-                let tokens = canvas.tokens.placeables.filter((token) => token);
-                for (var x = 0; x < tokens.length; x++) {
-                    let token = tokens[x];
-                    let actor = game.actors.get(token.document.actorId);
-                    if (actor.type !== "character") {
-                        return;
-                    }
-                    let encumbrance_amount =
-                        actor?.system?.stats?.encumbrance?.value;
-                    if (encumbrance_amount !== undefined) {
-                        encumbrance_amount =
-                            parseInt(actor.system.stats.encumbrance.value) -
-                            parseInt(actor.system.stats.encumbrance.max);
-                        if (encumbrance_amount < 0) {
-                            encumbrance_amount = 0;
-                        }
-                        // update the tokens
-                        update_status(token, encumbrance_amount, status);
-                    }
-                }
+                update_encumbrance();
             }
         } catch (exception) {
             // something went wrong, bail (silently)
-            console.error(
-                module_name,
-                "Failed to sync encumbrance: " + exception
-            );
+            console.error("Failed to sync encumbrance: " + exception);
+        }
+    }
+}
+
+export function update_encumbrance() {
+    if (game.user.isGM) {
+        let enabled = game.settings.get(
+            "star-wars-status-automation",
+            "encumbrance-sync-enable"
+        );
+        let tokens = canvas.tokens.placeables.filter((token) => token);
+        for (var x = 0; x < tokens.length; x++) {
+            let token = tokens[x];
+            let actor = game.actors.get(token.document.actorId);
+            if (actor.type !== "character") {
+                return;
+            }
+            if (enabled == true) {
+                let encumbrance_amount =
+                    actor?.system?.stats?.encumbrance?.value;
+                if (encumbrance_amount !== undefined) {
+                    encumbrance_amount =
+                        parseInt(actor.system.stats.encumbrance.value) -
+                        parseInt(actor.system.stats.encumbrance.max);
+                    if (encumbrance_amount < 0) {
+                        encumbrance_amount = 0;
+                    }
+                    // update the tokens
+                    log(module_name, "canvasReady: updating tokens now");
+                    update_status(token, encumbrance_amount, status);
+                }
+            } else {
+                update_status(token, 0, status);
+            }
         }
     }
 }

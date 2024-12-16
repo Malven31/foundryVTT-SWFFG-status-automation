@@ -10,11 +10,13 @@
         },
         "encumbrance-talent": {
             "name": "Nom du Talent d'Encombrement",
-            "hint": ""
+            "hint": "",
+            "default-name": "Encombrement"
         },
         "encumbrance-over-talent": {
             "name": "Nom du Talent de Sur-Encombrement",
-            "hint": ""
+            "hint": "",
+            "default-name": "Sur Encombrement"
         },
         "debug-enable": {
             "name": "Activer le Debug",

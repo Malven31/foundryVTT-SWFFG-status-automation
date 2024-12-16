@@ -21,6 +21,10 @@ Hooks.on("deleteItem", (...args) => {
     encumbrance_sync("updateItem", ...args);
 });
 
+Hooks.on("drawToken", (...args) => {
+    encumbrance_sync("updateItem", ...args);
+});
+
 Hooks.on("canvasReady", (...args) => {
-    encumbrance_sync("scene", ...args);
+    encumbrance_sync("canvasReady", ...args);
 });

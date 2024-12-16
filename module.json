@@ -1,10 +1,10 @@
 {
     "id": "star-wars-status-automation",
-    "title": "Star Wars Status Automation",
-    "description": "",
     "version": "#{VERSION}#",
     "url": "#{URL}#",
     "manifest": "#{MANIFEST}#",
+    "title": "FFG Star Wars Status Automation",
+    "description": "Various quality-of-life status automations for the FFG Star Wars system",
     "license": "LICENSE",
     "readme": "README.md",
     "compatibility": {
@@ -32,7 +32,6 @@
         }
     ],
     "esmodules": ["star-wars-status-automation.js"],
-    "scripts": ["scripts/encumbrance_automation.js", "scripts/settings.js"],
     "relationships": {
         "requires": [
             {

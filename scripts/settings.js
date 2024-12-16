@@ -13,6 +13,7 @@ export function init() {
             config: true,
             type: Boolean,
             default: true,
+            requiresReload: true,
         }
     );
     game.settings.register(

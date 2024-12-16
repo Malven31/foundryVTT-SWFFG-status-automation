@@ -10,11 +10,13 @@
         },
         "encumbrance-talent": {
             "name": "Encumbrance Talent name",
-            "hint": ""
+            "hint": "",
+            "default-name": "Encumbrance"
         },
         "encumbrance-over-talent": {
             "name": "Over Encumbrance Talent name",
-            "hint": ""
+            "hint": "",
+            "default-name": "Over Encumbrance"
         },
         "debug-enable": {
             "name": "Enable Debug",

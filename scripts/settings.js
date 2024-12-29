@@ -30,7 +30,7 @@ export function init() {
             config: true,
             type: String,
             filePicker: "image",
-            default: "icons/commodities/metal/ingot-stack-steel.webp",
+            default: "modules/star-wars-status-automation/icons/weight.webp",
         }
     );
     game.settings.register(

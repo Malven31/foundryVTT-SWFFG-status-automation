@@ -3,6 +3,7 @@
     "version": "#{VERSION}#",
     "url": "#{URL}#",
     "manifest": "#{MANIFEST}#",
+    "download": "#{DOWNLOAD}#",
     "title": "FFG Star Wars Status Automation",
     "description": "Various quality-of-life status automations for the FFG Star Wars system",
     "license": "LICENSE",

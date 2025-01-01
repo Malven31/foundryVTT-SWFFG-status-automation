@@ -1,0 +1,13 @@
+{
+    "label": "Auto-Talents",
+    "mapping": {
+        "description": "system.description",
+        "renderedDesc": "system.description"
+    },
+    "entries": {
+        "Encumbered": {
+            "name": "Encombré",
+            "description": "<h3>Encombrement : <i><b>5 + Vigueur</i></b></h3>Si un personnage voit son <b>encombrement</b> dépassé son <b>seuil d'encombrement</b>, il est considéré comme <b>encombré</b>.<br>Il aura alors +1[SETBACK] à chacun de ses test <b>de Vigueur</b> ou <b>d'Agilité</b> pour chaque point d'encombrement supérieur au seuil d'encombrement.<br><br><h3>Sur Encombrement : <i><b>5 + (Vigueur * 2)</i></b></h3>Si un personnage voit son <b>encombrement</b> dépassé son <b>seuil de sur encombrement</b>, il est considéré comme <b>sur encombré</b>.<br>Il <b>perd</b> alors sa <b>Manœuvre Gratuite</b> à chaque tour, et les [SETBACK] liés à l'encombrement continuent de s'appliquer."
+        }
+    }
+}

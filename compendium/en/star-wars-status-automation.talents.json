@@ -1,0 +1,13 @@
+{
+    "label": "Auto-Talents",
+    "mapping": {
+        "description": "system.description",
+        "renderedDesc": "system.description"
+    },
+    "entries": {
+        "Encumbered": {
+            "name": "Encumbered",
+            "description": "<h3>Encumberness : <i><b>5 + Brawn</i></b></h3>If a character's <b>encumbrance</b> goes over its <b>encumbrance threshold</b>, it is considered <b>encumbered</b>.<br>Character is granted +1[SETBACK] to every <b>Brawn</b> or <b>Agility</b> test per encumberance point over its encumberance threshold.<br><br><h3>Over Encumberness : <i><b>5 + (Brawn * 2)</i></b></h3>goes over its <b>over encumbrance threshold</b>, it is considered <b>over encumbered</b>.<br>Character <b>looses</b> its every turn <b>Free Manoeuver</b>, and all encumberance [SETBACK] keep applying."
+        }
+    }
+}

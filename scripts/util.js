@@ -6,3 +6,17 @@ export function log_msg(feature, ...args) {
         );
     }
 }
+
+export async function find_compendium_entity_by_id(type, id) {
+    let packs = Array.from(await game.packs.keys());
+    for (let i = 0; i < packs.length; i += 1) {
+        let packId = packs[i];
+        const pack = await game.packs.get(packId);
+        if (pack.documentName === type) {
+            const entity = await pack.getDocument(id);
+            if (entity) {
+                return entity;
+            }
+        }
+    }
+}

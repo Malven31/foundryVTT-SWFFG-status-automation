@@ -39,6 +39,11 @@
                 "id": "statuscounter",
                 "type": "module",
                 "compatibility": {}
+            },
+            {
+                "id": "babele",
+                "type": "module",
+                "compatibility": {}
             }
         ],
         "systems": [
@@ -54,5 +59,18 @@
             "extensions": ["json"],
             "paths": ["lang"]
         }
-    }
+    },
+    "packs": [
+        {
+            "name": "talents",
+            "label": "Auto-Talents",
+            "path": "packs/talents",
+            "type": "Item",
+            "ownership": {
+                "PLAYER": "OBSERVER",
+                "ASSISTANT": "OWNER"
+            },
+            "system": "starwarsffg"
+        }
+    ]
 }

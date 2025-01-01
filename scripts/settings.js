@@ -35,34 +35,36 @@ export function init() {
     );
     game.settings.register(
         "star-wars-status-automation",
-        "encumbrance-talent-name",
+        "encumbrance-sync-status-over",
         {
             name: game.i18n.localize(
-                "star-wars-status-automation.encumbrance-talent.name"
+                "star-wars-status-automation.encumbrance-sync-status-over.name"
             ),
             hint: game.i18n.localize(
-                "star-wars-status-automation.encumbrance-talent.hint"
+                "star-wars-status-automation.encumbrance-sync-status-over.hint"
             ),
             scope: "world",
             config: true,
             type: String,
-            default: "Encombrement",
+            filePicker: "image",
+            default:
+                "modules/star-wars-status-automation/icons/weight_over.webp",
         }
     );
     game.settings.register(
         "star-wars-status-automation",
-        "encumbrance-over-talent-name",
+        "encumbrance-talent-id",
         {
             name: game.i18n.localize(
-                "star-wars-status-automation.encumbrance-over-talent.name"
+                "star-wars-status-automation.encumbrance-talent-id.name"
             ),
             hint: game.i18n.localize(
-                "star-wars-status-automation.encumbrance-over-talent.hint"
+                "star-wars-status-automation.encumbrance-talent-id.hint"
             ),
             scope: "world",
-            config: true,
+            config: false,
             type: String,
-            default: "Sur Encombrement",
+            default: "LeYgHPRqiQiLb8uR",
         }
     );
     game.settings.register("star-wars-status-automation", "debug-enable", {

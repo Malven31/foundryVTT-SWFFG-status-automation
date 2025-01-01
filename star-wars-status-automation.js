@@ -1,8 +1,10 @@
 import { encumbrance_sync } from "./scripts/encumbrance_automation.js";
 import { init as settings_init } from "./scripts/settings.js";
+import { init as babele_translation_init } from "./scripts/babele_translation.js";
 
 Hooks.once("init", () => {
     settings_init();
+    babele_translation_init();
 });
 
 Hooks.on("updateActor", (...args) => {

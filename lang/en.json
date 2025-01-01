@@ -8,15 +8,13 @@
             "name": "Encumbrance icon",
             "hint": "Encumbrance icon to display on Actor's token."
         },
-        "encumbrance-talent": {
-            "name": "Encumbrance Talent name",
-            "hint": "",
-            "default-name": "Encumbrance"
+        "encumbrance-sync-status-over": {
+            "name": "Over-Encumbrance icon",
+            "hint": "Over-Encumbrance icon to display on Actor's token."
         },
-        "encumbrance-over-talent": {
-            "name": "Over Encumbrance Talent name",
-            "hint": "",
-            "default-name": "Over Encumbrance"
+        "encumbrance-talent-id": {
+            "name": "Encumbrance Talent ID",
+            "hint": ""
         },
         "debug-enable": {
             "name": "Enable Debug",

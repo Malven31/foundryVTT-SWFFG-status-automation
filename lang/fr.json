@@ -5,18 +5,16 @@
             "hint": "Active l'affichage de l'Encombrement sur le token de l'Actor. Avec le module \"Status Counter\" installé, affiche avec le compte de combien l'encombrement dépasse le seuil de l'Actor."
         },
         "encumbrance-sync-status": {
-            "name": "Icone de l'Encombrement",
+            "name": "Icone d'Encombrement",
             "hint": "L'icone de l'Encombrement à afficher sur le token de l'Actor."
         },
-        "encumbrance-talent": {
-            "name": "Nom du Talent d'Encombrement",
-            "hint": "",
-            "default-name": "Encombrement"
+        "encumbrance-sync-status-over": {
+            "name": "Icone de Sur-Encombrement",
+            "hint": "L'icone de Sur-Encombrement à afficher sur le token de l'Actor."
         },
-        "encumbrance-over-talent": {
-            "name": "Nom du Talent de Sur-Encombrement",
-            "hint": "",
-            "default-name": "Sur Encombrement"
+        "encumbrance-talent-id": {
+            "name": "ID du Talent d'Encombrement",
+            "hint": ""
         },
         "debug-enable": {
             "name": "Activer le Debug",

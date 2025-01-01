@@ -1,13 +1,29 @@
 import { log_msg as log } from "./util.js";
+import { find_compendium_entity_by_id } from "./util.js";
+import { add_talent } from "./talent.js";
 
 let module_name = "encumbrance_automation";
 
+export async function get_encumbrance_talent() {
+    const ENCUMBERED_ID = game.settings.get(
+        "star-wars-status-automation",
+        "encumbrance-talent-id"
+    );
+    let encumbered_talent = await find_compendium_entity_by_id(
+        "Item",
+        ENCUMBERED_ID
+    );
+    return encumbered_talent;
+}
+
+async function update_talent(actor, ranks) {
+    let encumbered_talent = await get_encumbrance_talent();
+    await add_talent(actor, encumbered_talent, ranks);
 }
 
 async function update_status(token, ranks, over) {
     // command inherited from ffg-star-wars-enhancement, modified
     // pull the path of the status to apply
-    update_talent(token, ranks);
     let status = game.settings.get(
         "star-wars-status-automation",
         "encumbrance-sync-status"
@@ -59,6 +75,7 @@ async function update_status(token, ranks, over) {
             await new_counter_over.setValue(0);
         }
     }
+    await update_talent(token.actor, ranks);
 }
 
 export function encumbrance_sync(source, ...args) {
@@ -89,6 +106,17 @@ export function encumbrance_sync(source, ...args) {
                         return;
                     }
                 } else if (source === "updateItem") {
+                    if (
+                        args[0] &&
+                        args[0].hasOwnProperty("type") &&
+                        args[0]["type"] === "talent"
+                    ) {
+                        // avoid infinite looping
+                        let encumbred_name = get_encumbrance_talent().name;
+                        if (args[0]["name"] === encumbred_name) {
+                            return;
+                        }
+                    }
                     if (
                         args[0] &&
                         args[0].hasOwnProperty("parent") &&

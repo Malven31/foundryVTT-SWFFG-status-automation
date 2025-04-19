@@ -27,8 +27,17 @@ Ths module is an attempt to automate parts of the [StarWarsFFG FoundryVTT system
 - Automate Encumbrance display (Token Status)
   - Grey weight icon for Encumbrance (over `5 + BRAWN`)
   - Red weight icon for Over-Encumbrance (over `5 + (BRAWN * 2)`)
-- Encumbrance "Talent" added to add Setback dices to all Brawn and Agility checks.
+- Encumbrance Talent added to add Setback dices to all Brawn and Agility checks.
   - Encumbrance adds a rank, that adds a Setback.
+
+## Dependency Modules
+
+This module is better used with :
+
+- [Status Icon Counter](https://gitlab.com/woodentavern/status-icon-counters) (from [WoodenTavern](https://gitlab.com/woodentavern))
+  - Used to display Encumbrance Level count on tokens
+- [Babele](https://gitlab.com/riccisi/foundryvtt-babele) (from [Simone Ricciardi](https://gitlab.com/riccisi))
+  - Used to translate Encumbrance Talent
 
 ## Thanks
 

@@ -11,6 +11,7 @@ module.exports = {
         talent: "readonly",
         libWrapper: "readonly",
         StatusCounter: "readonly",
+        window: "readonly",
         // Add other known Foundry globals
     },
     extends: ["eslint:recommended", "plugin:import/errors"],
@@ -19,18 +20,5 @@ module.exports = {
         ecmaVersion: "latest",
         sourceType: "module",
     },
-    settings: {
-        "import/resolver": {
-            node: {
-                moduleDirectory: [
-                    "node_modules",
-                    "C:/Users/alixd/AppData/Local/FoundryVTT/Data/modules",
-                ],
-                extensions: [".js", ".json"],
-            },
-        },
-    },
-    rules: {
-        // your rules
-    },
+    rules: {},
 };

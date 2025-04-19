@@ -1,5 +1,6 @@
 export function init() {
     game.settings.register(
+        // @ts-ignore
         "star-wars-status-automation",
         "encumbrance-sync-enable",
         {
@@ -17,6 +18,7 @@ export function init() {
         }
     );
     game.settings.register(
+        // @ts-ignore
         "star-wars-status-automation",
         "encumbrance-sync-status",
         {
@@ -34,6 +36,7 @@ export function init() {
         }
     );
     game.settings.register(
+        // @ts-ignore
         "star-wars-status-automation",
         "encumbrance-sync-status-over",
         {
@@ -52,6 +55,7 @@ export function init() {
         }
     );
     game.settings.register(
+        // @ts-ignore
         "star-wars-status-automation",
         "encumbrance-talent-id",
         {
@@ -67,16 +71,21 @@ export function init() {
             default: "LeYgHPRqiQiLb8uR",
         }
     );
-    game.settings.register("star-wars-status-automation", "debug-enable", {
-        name: game.i18n.localize(
-            "star-wars-status-automation.debug-enable.name"
-        ),
-        hint: game.i18n.localize(
-            "star-wars-status-automation.debug-enable.hint"
-        ),
-        scope: "world",
-        config: true,
-        type: Boolean,
-        default: false,
-    });
+    game.settings.register(
+        // @ts-ignore
+        "star-wars-status-automation",
+        "debug-enable",
+        {
+            name: game.i18n.localize(
+                "star-wars-status-automation.debug-enable.name"
+            ),
+            hint: game.i18n.localize(
+                "star-wars-status-automation.debug-enable.hint"
+            ),
+            scope: "world",
+            config: true,
+            type: Boolean,
+            default: false,
+        }
+    );
 }

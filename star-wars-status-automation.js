@@ -38,8 +38,4 @@ Hooks.on("canvasReady", (...args) => {
 window.talent = {
     setTalent: add_talent,
     getEncumbrance: get_encumbrance_talent,
-    /*
-    actor = game.actors.get("pllpGdsKEyqiLpMV") // ACTOR ID
-    await window.talent.setTalent(actor, await window.talent.getEncumbrance(), 0);
-    */
 };

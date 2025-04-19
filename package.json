@@ -1,0 +1,11 @@
+{
+    "dependencies": {
+        "eslint": "^9.25.0"
+    },
+    "devDependencies": {
+        "@league-of-foundry-developers/foundry-vtt-types": "^12.331.3-beta",
+        "eslint-import-resolver-node": "^0.3.9",
+        "eslint-plugin-import": "^2.31.0"
+    },
+    "type": "module"
+}

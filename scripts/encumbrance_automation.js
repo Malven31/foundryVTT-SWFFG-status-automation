@@ -1,6 +1,6 @@
 import { log_msg as log } from "./util.js";
 import { find_compendium_entity_by_id } from "./util.js";
-import { add_talent } from "./talent.js";
+import { update_status } from "./status_icon.js";
 
 let module_name = "encumbrance_automation";
 
@@ -16,69 +16,7 @@ export async function get_encumbrance_talent() {
     return encumbered_talent;
 }
 
-async function update_talent(actor, ranks) {
-    let encumbered_talent = await get_encumbrance_talent();
-    await add_talent(actor, encumbered_talent, ranks);
-}
-
-async function update_status(token, ranks, over) {
-    // command inherited from ffg-star-wars-enhancement, modified
-    // pull the path of the status to apply
-    let status = game.settings.get(
-        "star-wars-status-automation",
-        "encumbrance-sync-status"
-    );
-    let status_over = game.settings.get(
-        "star-wars-status-automation",
-        "encumbrance-sync-status-over"
-    );
-    let active = ranks !== 0;
-    if (!window.EffectCounter) {
-        // the user doesn't have status icon counters installed; they don't get a count
-        log(module_name, "Adding status to token");
-        if (over) {
-            token.toggleEffect(status_over, { active: active });
-            token.toggleEffect(status, { active: !active });
-        } else {
-            token.toggleEffect(status, { active: active });
-            token.toggleEffect(status_over, { active: !active });
-        }
-    } else {
-        // no need to search for the effect ourselves, as this is done in the underlying libraries
-        log(module_name, "Adding status rank " + ranks + " to token");
-        let status_rank = over ? 0 : ranks;
-        let status_over_rank = status_rank !== 0 ? 0 : ranks;
-        let new_counter = new ActiveEffectCounter(
-            status_rank,
-            status,
-            token.document
-        );
-        let new_counter_over = new ActiveEffectCounter(
-            status_over_rank,
-            status_over,
-            token.document
-        );
-        // render it
-        if (active) {
-            if (status_rank !== 0) {
-                await new_counter.update();
-            } else {
-                await new_counter.setValue(0);
-            }
-            if (status_over_rank !== 0) {
-                await new_counter_over.update();
-            } else {
-                await new_counter_over.setValue(0);
-            }
-        } else {
-            await new_counter.setValue(0);
-            await new_counter_over.setValue(0);
-        }
-    }
-    await update_talent(token.actor, ranks);
-}
-
-export function encumbrance_sync(source, ...args) {
+export async function encumbrance_sync(source, ...args) {
     // command inherited from ffg-star-wars-enhancement, modified
     // check if the user is a GM
     if (game.user.isGM) {
@@ -112,7 +50,8 @@ export function encumbrance_sync(source, ...args) {
                         args[0]["type"] === "talent"
                     ) {
                         // avoid infinite looping
-                        let encumbred_name = get_encumbrance_talent().name;
+                        let encumbred_name = (await get_encumbrance_talent())
+                            .name;
                         if (args[0]["name"] === encumbred_name) {
                             return;
                         }
@@ -191,6 +130,7 @@ export function update_encumbrance() {
         let tokens = canvas.tokens.placeables.filter((token) => token);
         for (var x = 0; x < tokens.length; x++) {
             let token = tokens[x];
+            /** @type {any} */
             let actor = game.actors.get(token.document.actorId);
             if (actor.type !== "character") {
                 return;

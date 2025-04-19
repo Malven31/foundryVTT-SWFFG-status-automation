@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "*": ["C:/Users/alixd/AppData/Local/FoundryVTT/Data/modules/*"]
+        },
+        "checkJs": true
+    },
+    "include": ["src/**/*", "scripts/**/*", "types/**/*.d.ts"]
+}

@@ -24,6 +24,8 @@ Ths module is an attempt to automate parts of the [StarWarsFFG FoundryVTT system
 
 ### Encumbrance
 
+![encumbrance](./resources/encumbrance.gif)
+
 - Automate Encumbrance display (Token Status)
   - Grey weight icon for Encumbrance (over `5 + BRAWN`)
   - Red weight icon for Over-Encumbrance (over `5 + (BRAWN * 2)`)
